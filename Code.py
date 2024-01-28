@@ -5,13 +5,13 @@ import Fonctions2 as f
 import asyncio
 import datetime
 
-serveur = 'ID of the discord server' 
+server = 'ID of the discord server' 
 ID = 'ID of the X/Twitter account'
 channel_id = 'ID of the discord channel where the tweets will be posted'
 TOKEN = 'TOKEN of the bot'
 id_of_ok_users = ['id1', 'id2', 'id3'] #ID of the users who can use the bot
 
-serveur_obj = discord.Object(id = serveur)
+server_obj = discord.Object(id = server)
 
 intents = discord.Intents().all()
 intents.message_content = True
@@ -36,7 +36,7 @@ async def on_ready():
     print("Bot launched :)")
 
     try:
-        synced = await bot.tree.sync(guild=serveur_obj)
+        synced = await bot.tree.sync(guild=server_obj)
         print(f"{len(synced)} commands(s) synchronized")
 
     except Exception as e:
@@ -63,7 +63,7 @@ async def verifNewTweet() :
                 await channel.send("New tweet !\n" + f.addFx(url))
 
 @bot.tree.command(
-    guild = serveur_obj,
+    guild = server_obj,
     name = "activetwitter",
     description = "Enable automatic retrieval of tweets",
 )
@@ -78,7 +78,7 @@ async def members(interaction: discord.Interaction, enable : bool = True) :
         verifNewTweet.cancel()
         
 @bot.tree.command(
-    guild = serveur_obj,
+    guild = server_obj,
     name = "see_files",
     description = "Send a file containing error logs and tweets data",
 )
