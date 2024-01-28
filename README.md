@@ -1,5 +1,6 @@
 # Automatic tweets retriever
 Hello ! This is my first project :)
+
 I made a twitter bot with Python (you can host it on websites like SolarHosting.cc btw)
 
 First, you will need to run "Installation.bat" to install all the modules needed. You can also just put in your cmd : python.exe -m pip install -r requirements.txt
